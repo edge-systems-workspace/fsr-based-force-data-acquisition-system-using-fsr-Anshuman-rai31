@@ -6,8 +6,8 @@ void setup() {
 
 }
 
-/*void loop() {
+void loop() {
     int fsrValue = analogRead(fsrPin);
     Serial.print(fsrValue);
     delay(300);
-}*/
+}

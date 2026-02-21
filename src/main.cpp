@@ -1,44 +1,38 @@
-#include <Arduino.h>
 /**
- * @file main.ino
- * @brief Embedded Force Measurement System using FSR
- * @author YOUR_NAME
- * @date YYYY-MM-DD
+ * @file main.cpp
+ * @brief Simple FSR (Force Sensing Resistor) data acquisition example for Arduino.
  *
+ * This sketch reads an analog value from an FSR connected to A0 and
+ * prints the raw ADC value to the serial console every 300 ms.
+ *
+ * @author Anshuman Rai
+ * @date 2026-02-21
  * @details
- * Reads analog force data from FSR sensor and
- * displays structured output via Serial Monitor.
+ * - Hardware: FSR connected to analog pin A0 (with appropriate pull-down/up resistor circuit)
+ * - Behavior: Reads analog value via analogRead and writes it to Serial at 9600 baud.
  */
 
- // TODO 1:
- // Define FSR analog pin (Use A0)
+#include <Arduino.h>
+int fsrPin=A0;
 
- // TODO 2:
- // Create variable to store sensor reading
-
+/**
+ * @brief Arduino setup function.
+ *
+ * Initializes serial communication at 9600 baud.
+ */
 void setup() {
+    Serial.begin(9600);
 
-    // TODO 3:
-    // Initialize Serial communication (9600 baud rate)
-
-    // TODO 4:
-    // Print system initialization message
 }
 
+/**
+ * @brief Arduino main loop.
+ *
+ * Reads the analog value from the FSR pin and prints it to the serial
+ * monitor. The read/print loop runs every 300 milliseconds.
+ */
 void loop() {
-
-    // TODO 5:
-    // Read analog value from FSR
-
-    // TODO 6:
-    // Print raw ADC value
-
-    // TODO 7:
-    // Apply simple threshold logic (e.g., detect pressure)
-
-    // TODO 8:
-    // Print pressure detection message
-
-    // TODO 9:
-    // Add delay (500ms or 1 second)
+    int fsrValue = analogRead(fsrPin);
+    Serial.print(fsrValue);
+    delay(300);
 }
